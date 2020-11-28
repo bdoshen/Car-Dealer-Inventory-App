@@ -14,3 +14,16 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.success-snackbar {
+  color: white;
+  background: #00C851;
+}
+
+.error-snackbar {
+  color: white;
+  background: #ff4444;
+}

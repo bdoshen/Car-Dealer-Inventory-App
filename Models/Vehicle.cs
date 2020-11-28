@@ -8,11 +8,12 @@ namespace CarDealerInventoryApp.Models
      public class Vehicle
      {
           public int vehicleID { get; set; }
-          public string model { get; set; }
-          public string type { get; set; }
           public string make { get; set; }
-          public float retailPrice { get; set; }
-          public float sellingPrice { get; set; }
+          public string model { get; set; }
+          public int year { get; set; }
+          public string type { get; set; }
+          public string retailPrice { get; set; }
+          public string sellingPrice { get; set; }
           public List<Feature> features { get; set; }
           public string status { get; set; }
      }

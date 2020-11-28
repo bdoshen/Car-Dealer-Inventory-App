@@ -15,8 +15,8 @@ namespace CarDealerInventoryApp.Controllers
           static List<Vehicle> inventory = new List<Vehicle>
           {
                new Vehicle {
-                    vehicleID = 1, model = "Fusion", type = "Car", make = "Ford",
-                    retailPrice = 25500.00F, sellingPrice = 30000.00F, status = "For Sale",
+                    vehicleID = 1, make = "Ford", model = "Fusion", year = 2019, type = "Car", 
+                    retailPrice = "25500.00", sellingPrice = "30000.00", status = "For Sale",
                     features = new List<Feature>
                     {
                          new Feature { type = "Doors", description = "4-door" },
@@ -26,8 +26,8 @@ namespace CarDealerInventoryApp.Controllers
                     }
                },
                new Vehicle {
-                    vehicleID = 2, model = "Dart", type = "Car", make = "Dodge",
-                    retailPrice = 31000.00F, sellingPrice = 47000.00F, status = "Sold",
+                    vehicleID = 2, make = "Dodge", model = "Dart", year = 2017, type = "Car", 
+                    retailPrice = "31000.00", sellingPrice = "47000.00", status = "Sold",
                     features = new List<Feature>
                     {
                          new Feature { type = "Doors", description = "2-door" },
@@ -37,8 +37,8 @@ namespace CarDealerInventoryApp.Controllers
                     }
                },
                new Vehicle {
-                    vehicleID = 3, model = "Navigator", type = "SUV", make = "Lincoln",
-                    retailPrice = 68500.00F, sellingPrice = 75000.00F, status = "For Sale",
+                    vehicleID = 3, make = "Lincoln", model = "Navigator", year = 2018, type = "SUV", 
+                    retailPrice = "68500.00", sellingPrice = "75000.00", status = "For Sale",
                     features = new List<Feature>
                     {
                          new Feature { type = "Doors", description = "4-door" },
@@ -46,7 +46,7 @@ namespace CarDealerInventoryApp.Controllers
                          new Feature { type = "Transmission", description = "Automatic" },
                          new Feature { type = "Interior", description = "Cloth" },
                     }
-               },
+               }
           };
 
           static readonly List<VehicleOptions> vehicleOptions = new List<VehicleOptions>
@@ -93,18 +93,39 @@ namespace CarDealerInventoryApp.Controllers
           }
 
           [HttpPost("AddVehicle")]
+          [ProducesResponseType(StatusCodes.Status200OK)]
+          [ProducesResponseType(StatusCodes.Status400BadRequest)]
           public IActionResult AddVehicle([FromBody] Vehicle vehicle)
           {
                try
                {
                     inventory.Add(vehicle);
 
-                    return Ok("Successfully added vehicle to Inventory!");
+                    return Ok();
                }
                catch (Exception ex)
                {
                     // write exception to log file
-                    return BadRequest("Error occurred when adding vehicle to Inventory.");
+                    return BadRequest();
+               }
+          }
+
+          [HttpGet("UpdateVehicleStatus/{vehicleID}/{status}")]
+          [ProducesResponseType(StatusCodes.Status200OK)]
+          [ProducesResponseType(StatusCodes.Status400BadRequest)]
+          public IActionResult UpdateVehicleStatus([FromRoute] int vehicleID, [FromRoute] string status)
+          {
+               try
+               {
+                    var itemToRemove = inventory.Single(r => r.vehicleID == vehicleID);
+                    inventory.Remove(itemToRemove);
+
+                    return Ok();
+               }
+               catch (Exception ex)
+               {
+                    // write exception to log file
+                    return BadRequest();
                }
           }
      }    

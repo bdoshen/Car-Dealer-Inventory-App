@@ -1,0 +1,62 @@
+<div *ngIf="markVehcileAsSold">
+    <h4 style="text-align: center;">Marking vehicle as sold. Please wait.</h4>
+    <mat-spinner [diameter]="70" style="position: relative; margin-left: 45%;"></mat-spinner>
+</div>
+
+<div *ngIf="!markVehcileAsSold">
+    <h4 style="text-align: center;">Vehicle Details</h4>
+
+    <div>
+        <mat-form-field>
+            <mat-label>Make</mat-label>
+            <input matInput value="{{make}}" disabled>
+        </mat-form-field>
+
+        <mat-form-field style="padding-left: 10px;">
+            <mat-label>Model</mat-label>
+            <input matInput value="{{model}}" disabled>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field>
+            <mat-label>Year</mat-label>
+            <input matInput value="{{year}}" disabled>
+        </mat-form-field>
+
+        <mat-form-field style="padding-left: 10px;">
+            <mat-label>Doors</mat-label>
+            <input matInput value="{{doors}}" disabled>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field>
+            <mat-label>Fuel</mat-label>
+            <input matInput value="{{fuel}}" disabled>
+        </mat-form-field>
+
+        <mat-form-field style="padding-left: 10px;">
+            <mat-label>Transmission</mat-label>
+            <input matInput value="{{transmission}}" disabled>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field>
+            <mat-label>Interior</mat-label>
+            <input matInput value="{{interior}}" disabled>
+        </mat-form-field>
+
+        <mat-form-field style="padding-left: 10px;">
+            <mat-label>Calculated Selling Price</mat-label>
+            <input matInput value="{{sellingPrice | currency}}" disabled>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <button mat-flat-button class="error-snackbar" (click)="onMarkVehicleAsSoldClick()">
+            Mark Vehicle As Sold
+        </button>
+    </div>
+</div>

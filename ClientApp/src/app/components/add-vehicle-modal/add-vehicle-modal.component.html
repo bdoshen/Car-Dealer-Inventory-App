@@ -1,0 +1,104 @@
+<div *ngIf="addNewVehicleClicked">
+    <h4 style="text-align: center;">Adding new vehicle to inventory. Please wait.</h4>
+    <mat-spinner [diameter]="70" style="position: relative; margin-left: 45%;"></mat-spinner>
+</div>
+
+<div *ngIf="!addNewVehicleClicked">
+    <form [formGroup]="form">
+        <h4 style="text-align: center;">Add New Vehicle to Inventory</h4>
+
+        <div>
+            <mat-form-field appearance="fill" >
+                <mat-label>Make</mat-label>
+                <mat-select formControlName="make">
+                <mat-option *ngFor="let make of vehicleMakes" value="{{make}}">
+                    {{make}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" style="padding-left: 10px;">
+                <mat-label>Model</mat-label>
+                <mat-select formControlName="model">
+                <mat-option *ngFor="let model of vehicleModels" value="{{model}}">
+                    {{model}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Year</mat-label>
+                <mat-select formControlName="year">
+                <mat-option *ngFor="let year of vehicleYears" value="{{year}}">
+                    {{year}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" style="padding-left: 10px;">
+                <mat-label>Doors</mat-label>
+                <mat-select formControlName="doors">
+                <mat-option *ngFor="let door of featureDoors" value="{{door.description}}">
+                    {{door.description}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Fuel</mat-label>
+                <mat-select formControlName="fuel">
+                <mat-option *ngFor="let fuel of featureFuel" value="{{fuel.description}}">
+                    {{fuel.description}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" style="padding-left: 10px;">
+                <mat-label>Transmission</mat-label>
+                <mat-select formControlName="transmission">
+                <mat-option *ngFor="let transmission of featureTransmission" value="{{transmission.description}}">
+                    {{transmission.description}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Interior</mat-label>
+                <mat-select formControlName="interior">
+                <mat-option value="Cloth">
+                    Cloth
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field style="padding-left: 10px;">
+                <mat-label>Retail Price</mat-label>
+                <input matInput formControlName="retailPrice">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field style="padding-left: 10px;">
+                <mat-label>Mark Up Percentage</mat-label>
+                <input matInput type="number" formControlName="markUpPercentage">
+            </mat-form-field>
+
+            <mat-form-field style="padding-left: 10px;">
+                <mat-label>Calculated Selling Price</mat-label>
+                <input matInput formControlName="sellingPrice" >
+            </mat-form-field>
+        </div>
+
+        <div>
+            <button mat-flat-button color="primary" (click)="AddNewVehicleOnClick()" [disabled]="form.invalid">
+                Add New Vehilce
+            </button>
+        </div>
+    </form>
+</div>
