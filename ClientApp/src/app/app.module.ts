@@ -6,9 +6,6 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
-import { HomeComponent } from './components/home/home.component';
-import { CounterComponent } from './components/counter/counter.component';
-import { FetchDataComponent } from './components/fetch-data/fetch-data.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InventoryComponent } from './components/inventory/inventory.component';
 
@@ -28,9 +25,6 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     InventoryComponent,
     AddVehicleModalComponent,
     VehicleDetailsModalComponent,
@@ -54,8 +48,6 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
     NgxChartsModule,
     RouterModule.forRoot([
       { path: '', component: InventoryComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
     ]),
     BrowserAnimationsModule
   ],

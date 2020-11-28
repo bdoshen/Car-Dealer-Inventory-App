@@ -46,7 +46,95 @@ namespace CarDealerInventoryApp.Controllers
                          new Feature { type = "Transmission", description = "Automatic" },
                          new Feature { type = "Interior", description = "Cloth" },
                     }
-               }
+               },
+               new Vehicle {
+                    vehicleID = 4, make = "Lincoln", model = "MKZ", year = 2019, type = "Car",
+                    retailPrice = "48000.00", sellingPrice = "55000.00", status = "For Sale",
+                    features = new List<Feature>
+                    {
+                         new Feature { type = "Doors", description = "4-door" },
+                         new Feature { type = "Fuel", description = "Hybrid" },
+                         new Feature { type = "Transmission", description = "Automatic" },
+                         new Feature { type = "Interior", description = "Cloth" },
+                    }
+               },
+               new Vehicle {
+                    vehicleID = 5, make = "Ford", model = "Focus", year = 2020, type = "Car",
+                    retailPrice = "32500.00", sellingPrice = "45000.00", status = "For Sale",
+                    features = new List<Feature>
+                    {
+                         new Feature { type = "Doors", description = "2-door" },
+                         new Feature { type = "Fuel", description = "Electric" },
+                         new Feature { type = "Transmission", description = "Automatic" },
+                         new Feature { type = "Interior", description = "Cloth" },
+                    }
+               },
+               new Vehicle {
+                    vehicleID = 6, make = "Ford", model = "Focus", year = 2012, type = "Car",
+                    retailPrice = "19000.00", sellingPrice = "25000.00", status = "For Sale",
+                    features = new List<Feature>
+                    {
+                         new Feature { type = "Doors", description = "4-door" },
+                         new Feature { type = "Fuel", description = "Gas" },
+                         new Feature { type = "Transmission", description = "Manual" },
+                         new Feature { type = "Interior", description = "Cloth" },
+                    }
+               },
+               new Vehicle {
+                    vehicleID = 7, make = "Ford", model = "F-150", year = 2020, type = "Truck",
+                    retailPrice = "38000.00", sellingPrice = "47000.00", status = "For Sale",
+                    features = new List<Feature>
+                    {
+                         new Feature { type = "Doors", description = "4-door" },
+                         new Feature { type = "Fuel", description = "Hybrid" },
+                         new Feature { type = "Transmission", description = "Automatic" },
+                         new Feature { type = "Interior", description = "Cloth" },
+                    }
+               },
+               new Vehicle {
+                    vehicleID = 8, make = "Dodge", model = "Dart", year = 2018, type = "Car",
+                    retailPrice = "17000.00", sellingPrice = "20000.00", status = "For Sale",
+                    features = new List<Feature>
+                    {
+                         new Feature { type = "Doors", description = "2-door" },
+                         new Feature { type = "Fuel", description = "Gas" },
+                         new Feature { type = "Transmission", description = "Automatic" },
+                         new Feature { type = "Interior", description = "Cloth" },
+                    }
+               },
+               new Vehicle {
+                    vehicleID = 9, make = "Dodge", model = "Avenger", year = 2015, type = "Car",
+                    retailPrice = "24000.00", sellingPrice = "30000.00", status = "For Sale",
+                    features = new List<Feature>
+                    {
+                         new Feature { type = "Doors", description = "4-door" },
+                         new Feature { type = "Fuel", description = "Gas" },
+                         new Feature { type = "Transmission", description = "Automatic" },
+                         new Feature { type = "Interior", description = "Cloth" },
+                    }
+               },
+               new Vehicle {
+                    vehicleID = 10, make = "Dodge", model = "Durango", year = 2020, type = "SUV",
+                    retailPrice = "48000.00", sellingPrice = "62500.00", status = "For Sale",
+                    features = new List<Feature>
+                    {
+                         new Feature { type = "Doors", description = "4-door" },
+                         new Feature { type = "Fuel", description = "Electric" },
+                         new Feature { type = "Transmission", description = "Automatic" },
+                         new Feature { type = "Interior", description = "Cloth" },
+                    }
+               },
+               new Vehicle {
+                    vehicleID = 11, make = "Dodge", model = "Durango", year = 2011, type = "SUV",
+                    retailPrice = "32000.00", sellingPrice = "38000.00", status = "For Sale",
+                    features = new List<Feature>
+                    {
+                         new Feature { type = "Doors", description = "4-door" },
+                         new Feature { type = "Fuel", description = "Gas" },
+                         new Feature { type = "Transmission", description = "Manual" },
+                         new Feature { type = "Interior", description = "Cloth" },
+                    }
+               },
           };
 
           static readonly List<VehicleOptions> vehicleOptions = new List<VehicleOptions>

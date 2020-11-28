@@ -54,6 +54,8 @@ export class VehicleDetailsModalComponent implements OnInit {
     dialogRef.afterClosed().subscribe(dialogResult => {
       if (dialogResult) {
         this.markVehcileAsSold = true;
+
+        // disables the ability to exit modal when clicking the background around modal
         this.dialogRef.disableClose = true;
 
         this.vehicleService.updateVehicleStatus(this.data.row.vehicleID, 'Sold').subscribe(() => {

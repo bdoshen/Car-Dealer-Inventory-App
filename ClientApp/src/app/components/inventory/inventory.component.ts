@@ -32,10 +32,12 @@ export class InventoryComponent implements OnInit, OnDestroy {
 
   dataSource = new MatTableDataSource<Vehicle>([]);
 
+  // used to dynamically load columns and data for the rows
   displayedColumns = [
     'make', 'model', 'year', 'type', 'feature', 'sellingPrice', 'details'
   ];
 
+  // used to dynamically load columns and data for the rows
   tableDef: Array<any> = [
     {key: 'make', header: 'Make'},
     {key: 'model', header: 'Model'},
@@ -52,6 +54,7 @@ export class InventoryComponent implements OnInit, OnDestroy {
   // used to show that no data exists
   noInventoryExists = false;
 
+  // used to calculate the total inventory values
   totalPotentialProfit = 0.00;
   totalRetailPrice = 0.00;
   totalPriceOfInventory = 0.00;
@@ -63,7 +66,7 @@ export class InventoryComponent implements OnInit, OnDestroy {
   showLabels = false;
   explodeSlices = false;
   colorScheme = {
-    domain: ['#5AA454', '#9e54a4', '#AAAAAA']
+    domain: ['#5AA454', '#DB794F']
   };
 
   constructor(
@@ -81,9 +84,10 @@ export class InventoryComponent implements OnInit, OnDestroy {
 
         this.vehicleService.getInventory();
       } else if (data.length !== 0) {
-        console.log(data.length, data);
         this.noInventoryExists = false;
         let inventory = data;
+
+        // if inventory changes reset totals to 0.00
         this.totalPriceOfInventory = 0.00;
         this.totalRetailPrice = 0.00;
         this.totalPriceOfInventory = 0.00;
@@ -122,6 +126,7 @@ export class InventoryComponent implements OnInit, OnDestroy {
           return a.year - b.year;
         });
 
+        // pie graph data
         this.reportResults = <any>[
           { name: 'Total Potential Profit', value: this.totalPotentialProfit},
           { name: 'Total Retail Price', value: this.totalRetailPrice},
@@ -131,6 +136,8 @@ export class InventoryComponent implements OnInit, OnDestroy {
         this.noInventoryExists = inventory.length === 0 ? true : false;
       } else if (data.length === 0 && this.calledGetInventory) {
         this.noInventoryExists = true;
+
+        // if inventory changes reset totals to 0.00
         this.totalPriceOfInventory = 0.00;
         this.totalRetailPrice = 0.00;
         this.totalPriceOfInventory = 0.00;

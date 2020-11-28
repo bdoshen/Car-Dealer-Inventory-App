@@ -21,6 +21,7 @@ export class AddVehicleModalComponent implements OnInit, OnDestroy {
   // used to keep track of what the next ID is in the array
   vehicleID = 0;
 
+  // used to show loading html
   addNewVehicleClicked = false;
 
   form = new FormGroup({
@@ -46,7 +47,9 @@ export class AddVehicleModalComponent implements OnInit, OnDestroy {
     retailPrice: new FormControl({value: 0.00, disabled: true}, {
       validators: [Validators.required]
     }),
-    markUpPercentage: new FormControl(null),
+    markUpPercentage: new FormControl(0, {
+      validators: [Validators.required]
+    }),
     sellingPrice: new FormControl({value: 0, disabled: true}, {
       validators: [Validators.required]
     }),
@@ -222,6 +225,8 @@ export class AddVehicleModalComponent implements OnInit, OnDestroy {
       return;
     } else {
       this.addNewVehicleClicked = true;
+
+      // disables the ability to exit modal when clicking the background around modal
       this.dialogRef.disableClose = true;
 
       const type = this.vehicleOptions.filter(v => v.model === this.form.controls.model.value)[0].type;
